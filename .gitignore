@@ -1,3 +1,2 @@
-data/dictionary/STGCharacters.txt
+dicts/STGCharacters.txt
 opencc/*.ocd2
-opencc/*.json

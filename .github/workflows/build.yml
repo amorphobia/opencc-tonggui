@@ -17,11 +17,11 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          brew install opencc awk make
+          brew install opencc
 
       - name: Build and Pack
         run: |
-          make && rm opencc/.gitkeep && zip -r opencc-tonggui.zip opencc -x "*.DS_Store"
+          make && zip -r opencc-tonggui.zip opencc -x "*.DS_Store"
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3

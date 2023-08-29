@@ -3,19 +3,16 @@ CFLAGS = -f text -t ocd2
 
 all: opencc/STGCharacters.ocd2 opencc/STGPhrases.ocd2 opencc/s2tg.json
 
-opencc/s2tg.json: data/config/s2tg.json
-	cp data/config/s2tg.json opencc/
+dicts/STGCharacters.txt: src/*.txt
+	cat src/*.txt | sort -s | awk '!seen[$$1]++' > $@
 
-data/dictionary/STGCharacters.txt: data/src/*.txt
-	cat data/src/*.txt | sort -s | awk '!seen[$$1]++' > $@
-
-opencc/STGCharacters.ocd2: data/dictionary/STGCharacters.txt
+opencc/STGCharacters.ocd2: dicts/STGCharacters.txt
 	$(CC) $(CFLAGS) -i $< -o $@
 
-opencc/STGPhrases.ocd2: data/dictionary/STGPhrases.txt
+opencc/STGPhrases.ocd2: dicts/STGPhrases.txt
 	$(CC) $(CFLAGS) -i $< -o $@
 
 clean:
-	rm -rf opencc/*.ocd2 opencc/*.json data/dictionary/STGCharacters.txt
+	rm -rf opencc/*.ocd2 dicts/STGCharacters.txt
 
 .PHONY: all clean
