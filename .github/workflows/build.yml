@@ -26,7 +26,7 @@ jobs:
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: opencc-tonggui
+          name: opencc
           path: opencc-tonggui.zip
 
   release:
@@ -41,7 +41,7 @@ jobs:
       - name: Download Artifacts
         uses: actions/download-artifact@v3
         with:
-          name: opencc-tonggui
+          name: opencc
 
       - name: Rename Zip
         run: mv opencc-tonggui.zip opencc-tonggui-${{ github.ref_name }}.zip
