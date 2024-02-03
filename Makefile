@@ -1,3 +1,4 @@
+export LC_ALL := C
 CC = opencc_dict
 CFLAGS = -f text -t ocd2
 
@@ -12,7 +13,13 @@ opencc/STGCharacters.ocd2: dicts/STGCharacters.txt
 opencc/STGPhrases.ocd2: dicts/STGPhrases.txt
 	$(CC) $(CFLAGS) -i $< -o $@
 
+check: src/*.txt
+	diff <(cat src/*.txt | tr -d '\r' | sort -s) <(cat src/*.txt | tr -d '\r' | sort -s | awk '!seen[$$1]++')
+
+sort: src/03.deduced.txt
+	sort -o src/03.deduced.txt{,}
+
 clean:
 	rm -rf opencc/*.ocd2 dicts/STGCharacters.txt
 
-.PHONY: all clean
+.PHONY: all check sort clean
