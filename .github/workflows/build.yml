@@ -13,7 +13,7 @@ jobs:
     name: Build OpenCC Dicts
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install Dependencies
         run: |
@@ -24,7 +24,7 @@ jobs:
           make && zip -r opencc-tonggui.zip opencc -x "*.DS_Store"
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: opencc
           path: opencc-tonggui.zip
@@ -36,10 +36,10 @@ jobs:
     if: startsWith(github.ref, 'refs/tags/v')
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Download Artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: opencc
 
@@ -47,6 +47,6 @@ jobs:
         run: mv opencc-tonggui.zip opencc-tonggui-${{ github.ref_name }}.zip
 
       - name: Upload Assets
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           files: opencc-tonggui-${{ github.ref_name }}.zip
