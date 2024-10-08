@@ -20,6 +20,7 @@ check: src/*.txt
 
 sort: src/03.deduced.txt
 	sort -o src/03.deduced.txt{,}
+	sort -o dicts/STGPhrases.txt{,}
 
 clean:
 	rm -rf opencc/*.ocd2 dicts/STGCharacters.txt
