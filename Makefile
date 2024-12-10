@@ -17,6 +17,7 @@ opencc/STGPhrases.ocd2: dicts/STGPhrases.txt
 
 check: src/*.txt
 	diff <(cat src/*.txt | tr -d '\r' | sort -s) <(cat src/*.txt | tr -d '\r' | sort -s | awk '!seen[$$1]++')
+	diff <(cat dicts/STGPhrases.txt | tr -d '\r' | sort -s) <(cat dicts/STGPhrases.txt | tr -d '\r' | sort -s | awk '!seen[$$1]++')
 
 sort: src/03.deduced.txt
 	sort -o src/03.deduced.txt{,}
