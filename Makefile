@@ -11,7 +11,7 @@ src/00.extend.txt: src/00.extend.txt.in
 	cp $< $@
 
 dicts/STGCharacters.txt: src/*.txt
-	cat src/*.txt | sort -s | awk '!seen[$$1]++' > $@
+	cat src/*.txt | awk '!seen[$$1]++' | sort -s > $@
 
 opencc/STGCharacters.ocd2: dicts/STGCharacters.txt
 	$(CC) $(CFLAGS) -i $< -o $@
