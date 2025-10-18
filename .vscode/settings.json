@@ -1,5 +1,5 @@
 {
     "editor.insertSpaces": false,
     "editor.tabSize": 16,
-    "editor.fontFamily": "'Noto Sans SC', 'Plangothic P1', 'Plangothic P2'",
+    "editor.fontFamily": "'Consolas', 'Noto Sans SC', 'Plangothic P1', 'Plangothic P2'",
 }
