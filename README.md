@@ -4,6 +4,12 @@
 > - 由于转换词典的底稿是 OpenCC 的简繁转换词典，少许异体字的使用并不符合中国大陆标准，仍需进一步校对。
 > - 由于排除了异体字，本表不包含由繁至简的转换，可使用 OpenCC 现有繁简转换。
 
+## 构建
+
+首先安装 OpenCC 命令行工具和 GNU make 工具，然后运行 `make all` 或者 `make extend`，构建产物在 `opencc` 文件夹中。
+
+如果不需要[扩展](#扩展)转换，推荐使用 GitHub Action 自动构建的[每夜版](https://github.com/amorphobia/opencc-tonggui/releases/tag/latest)。
+
 ## 介绍
 
 本仓库提供以中国大陆标准为基础的 [OpenCC](https://github.com/BYVoid/OpenCC) 转换词典，基于《[通用规范汉字表](https://zh.wikipedia.org/zh-cn/%E9%80%9A%E7%94%A8%E8%A7%84%E8%8C%83%E6%B1%89%E5%AD%97%E8%A1%A8)》（以下简称《通规》）、《[简化字总表](https://zh.wikipedia.org/zh-cn/%E7%AE%80%E5%8C%96%E5%AD%97%E6%80%BB%E8%A1%A8)》（以下简称《总表》）、OpenCC 数据等资料制作。

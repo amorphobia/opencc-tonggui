@@ -29,6 +29,17 @@ jobs:
           name: opencc
           path: opencc-tonggui.zip
 
+      - name: Create Nightly Release
+        if: ${{ github.ref == 'refs/heads/master' }}
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          automatic_release_tag: latest
+          prerelease: true
+          title: "Nightly"
+          files: |
+            opencc-tonggui.zip
+
   release:
     runs-on: macos-latest
     name: Create Release
